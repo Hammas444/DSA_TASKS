@@ -337,17 +337,19 @@ BSTNode* deletenode(BSTNode* node,int todel){
 		if(node->left==NULL){
 			BSTNode* temp=node->right;
 			free(node);
+			cout << "Deleted Successfully" << endl;
 			return temp;
 		}
 		else if(node->right==NULL){
 			BSTNode* temp=node->left;
 			free(node);
+			cout << "Deleted Successfully" << endl;
 			return temp;
 		}
 		
 		BSTNode* temp=min(node->right);
 		node->data=temp->data;
-		   deletenode(temp,todel);
+		   node->right = deletenode(node->right,temp->data);
 		  
 		
 		
